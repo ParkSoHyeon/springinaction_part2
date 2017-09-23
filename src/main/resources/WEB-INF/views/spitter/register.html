@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Spittr</title>
+    <link rel="stylesheet"
+          type="text/css"
+          th:href="@{../style.css}"/>
+</head>
+<body>
+    <form method="post" th:object="${spitter}">
+        <div class="errors" th:if="${#fields.hasErrors('*')}">
+            <li th:each="err : ${#fields.errors('*')}"
+                th:text="${err}">Input is incorrect</li>
+        </div>
+
+        <label th:class="${#fields.hasErrors('firstName')} ? 'error'">First Name : </label>
+        <input type="text" th:field="*{firstName}"
+                th:class="${#fields.hasErrors('firstName')} ? 'error'">
+    </form>
+</body>
+</html>
