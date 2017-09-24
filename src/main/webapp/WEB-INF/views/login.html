@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Spitter</title>
+    <link rel="stylesheet" type="text/css" th:href="@{../style.css}">
+</head>
+<body onload="document.f.username.focus()">
+    <div id="header" th:include="page :: header"></div>
+
+    <div id="content">
+        <form name="f" action="@{/login}" method="post">
+            <table>
+                <tr>
+                    <td>User : </td>
+                    <td><input type="text" name="username" value=""/></td>
+                </tr>
+                <tr>
+                    <td>Password : </td>
+                    <td><input type="password" name="password" value=""/></td>
+                </tr>
+
+                <input id="remember_me" name="remember_me" type="checkbox"/>
+                <label for="remember_me" class="inline">Remember me</label>
+
+                <tr>
+                    <td colspan="2"><input type="submit" name="submit" value="Login"/></td>
+                </tr>
+
+                <!--<input name="_csrf" type="hidden" value="6829b1ae-0a14-4920-aac4-5abbd7ee9ee"/>-->
+            </table>
+        </form>
+    </div>
+    <div id="footer" th:include="page :: copy"></div>
+</body>
+</html>
