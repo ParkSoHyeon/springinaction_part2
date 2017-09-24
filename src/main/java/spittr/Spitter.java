@@ -28,7 +28,7 @@ public class Spitter {
     @Email(message = "{email.valid}")
     private String email;
 
-    public Spitter(@javax.validation.constraints.NotNull @Size(min = 5, max = 16, message = "{username.size}") String username, @javax.validation.constraints.NotNull @Size(min = 5, max = 25, message = "{password.size}") String password, @javax.validation.constraints.NotNull @Size(min = 2, max = 30, message = "{firstName.size}") String firstName, @javax.validation.constraints.NotNull @Size(min = 2, max = 30, message = "{lastName.size}") String lastName, @javax.validation.constraints.NotNull @Email String email){
+    public Spitter() {
 
     }
 

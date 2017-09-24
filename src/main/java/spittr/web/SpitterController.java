@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import spittr.Spitter;
 import spittr.Spittle;
 import spittr.data.SpitterRepository;
@@ -38,14 +39,27 @@ public class SpitterController {
 //            @RequestPart("profilePicture") byte[] profilePicture    //파일 타입 알 수 없음, 원래 파일의 이름 알 수 없음
 //            @RequestPart("profilePicture") Part profilePicture  //Part 파일 업로드, StandardServletMultipartResolver 빈 설정할 필요 없음
             @RequestPart("profilePicture") MultipartFile profilePicture
-            ,@Valid  Spitter spitter
-            , Errors errors) {
+            , @Valid  Spitter spitter
+            , Errors errors
+//            , Model model
+            , RedirectAttributes model) {
         if(errors.hasErrors())
             return "registerForm";
 
         spitterRepository.save(spitter);
 
-        return "redirect:/spitter/" + spitter.getUsername();
+        //리다이렉션 데이터 전달 방법3
+        model.addAttribute("username", spitter.getUsername());
+        model.addFlashAttribute("spitter", spitter);
+
+        return "redirect:/spitter/{username}";
+
+        //리다이렉션 데이터 전달 방법2
+//        model.addAttribute("username", spitter.getUsername());
+//        return "redirect:/spitter/{username}";  //모델의 애트리뷰트와 리다이렉션 패스의 플레이스 홀더에 채워주는 방법
+
+        //리다이렉션 데이터 전달 방법1
+//        return "redirect:/spitter/" + spitter.getUsername();
     }
 
 
@@ -55,9 +69,12 @@ public class SpitterController {
             @PathVariable("username") String username
             , Model model
     ) {
-        Spitter spitter = spitterRepository.findByUsername(username);
-
-        model.addAttribute(spitter);
+        if(model.containsAttribute("spitter")) {
+            model.addAttribute(spitterRepository.findByUsername(username));
+        }
+//        Spitter spitter = spitterRepository.findByUsername(username);
+//
+//        model.addAttribute(spitter);
 
         return "profile";
     }
