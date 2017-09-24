@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <meta charset="UTF-8">
     <title>Spittr</title>
@@ -10,7 +11,12 @@
           th:href="@{../style.css}"/>
 </head>
 <body>
+    <div sec:authorize="isAuthenticated()">Hello <span sec:authentication="name">someone</span> </div> <a th:href="@{signout}">Logout</a>
     <h1>Welcome to Spittr</h1>
+
+    <span sec:authorize-url="/admin">
+        <a th:href="@{/admin}">Admin</a>
+    </span>
 
     <a th:href="@{spittles}">Spittles</a>
     <a th:href="@{spitter/register}">Register</a>
