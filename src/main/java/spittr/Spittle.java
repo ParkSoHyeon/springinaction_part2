@@ -6,18 +6,18 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import java.util.Date;
 
 public class Spittle {
-    private final Long id;
+    private final long id;
     private final String message;
     private final Date time;
     private Double latitude;
     private Double longitude;
 
-    public Spittle(String message, Date time) {
-        this(message, time, null, null);
+    public Spittle(long id,String message, Date time) {
+        this(id, message, time, null, null);
     }
 
-    public Spittle(String message, Date time, Double longitude, Double latitude) {
-        this.id = null;
+    public Spittle(long id, String message, Date time, Double longitude, Double latitude) {
+        this.id = id;
         this.message = message;
         this.time = time;
         this.longitude = longitude;

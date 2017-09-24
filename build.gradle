@@ -30,5 +30,8 @@ dependencies {
     // https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring4
     compile group: 'org.thymeleaf', name: 'thymeleaf-spring4', version: '3.0.7.RELEASE'
 
+    // https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-s3
+    compile group: 'com.amazonaws', name: 'aws-java-sdk-s3', version: '1.11.202'
+
 
 }

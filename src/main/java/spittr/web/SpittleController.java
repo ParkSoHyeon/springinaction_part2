@@ -3,13 +3,11 @@ package spittr.web;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import spittr.Spittle;
 import spittr.data.SpittleRepository;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -65,8 +63,21 @@ public class SpittleController {
     public String spittle(
             @PathVariable("spittleId") long spittleId,
             Model model) {
+        Spittle spittle = spittleRepository.findOne(spittleId);
+
+        if(spittle == null) {
+            throw new SpittleNotFoundException();
+        }
         model.addAttribute(spittleRepository.findOne(spittleId));
 
         return "spittle";
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public String saveSpittle(SpittleForm form, Model model) {
+        spittleRepository.save(new Spittle(0L, form.getMessage(), new Date(), form.getLongitude(), form.getLatitude()));
+
+        return "redirect:/spittles";
+
     }
 }

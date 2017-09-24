@@ -10,7 +10,7 @@
           th:href="@{../style.css}"/>
 </head>
 <body>
-    <form method="post" th:object="${spitter}">
+    <form method="post" th:object="${spitter}" enctype="multipart/form-data">
         <div class="errors" th:if="${#fields.hasErrors('*')}">
             <li th:each="err : ${#fields.errors('*')}"
                 th:text="${err}">Input is incorrect</li>
@@ -18,7 +18,10 @@
 
         <label th:class="${#fields.hasErrors('firstName')} ? 'error'">First Name : </label>
         <input type="text" th:field="*{firstName}"
-                th:class="${#fields.hasErrors('firstName')} ? 'error'">
+                th:class="${#fields.hasErrors('firstName')} ? 'error'"><br>
+
+        <label>Profile Picture</label> :
+        <input type="file" name="profilePicture" accept="image/jpeg, image/png, image/gif"><br>
     </form>
 </body>
 </html>
