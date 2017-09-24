@@ -65,7 +65,7 @@ public class HomeControllerTest {
         SpittleController controller = new SpittleController(mockRepository);
 
         MockMvc mockMvc = standaloneSetup(controller)
-                .setSingleView(new InternalResourceView("/WEB-INF/views/spittles.jsp"))
+                .setSingleView(new InternalResourceView("/webapp/WEB-INF/views/spittles.jsp"))
                 .build();
 
         mockMvc.perform(get("/spittles?max=238900&count=50"))

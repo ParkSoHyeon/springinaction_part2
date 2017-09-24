@@ -83,7 +83,7 @@ public class WebConfig  extends WebMvcConfigurerAdapter{
 
         templateResolver.setApplicationContext(this.applicationContext);
 
-        templateResolver.setPrefix("/WEB-INF/templates/"); // HTML 파일 위치
+        templateResolver.setPrefix("/webapp/WEB-INF/templates/"); // HTML 파일 위치
 
         templateResolver.setSuffix(".html"); // HTML 확장명 사용
 
