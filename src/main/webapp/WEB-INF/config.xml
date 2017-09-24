@@ -12,12 +12,11 @@
     <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
         <property name="definitions">
             <list>
-                <value>/webapp/WEB-INF/layout/tiles.xml</value>
-                <value>/webapp/WEB-INF/views/**/tiles.xml</value>
+                <value>WEB-INF/layout/tiles.xml</value>
             </list>
         </property>
     </bean>
 
-    <bean id="viewResolver"
+    <bean id="viewResolver2"
           class="org.springframework.web.servlet.view.tiles3.TilesViewResolver"/>
 </beans>
