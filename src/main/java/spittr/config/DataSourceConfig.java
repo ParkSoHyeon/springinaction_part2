@@ -44,7 +44,7 @@ public class DataSourceConfig {
         return dataSource;
     }
 
-    //풀링 설정 프로퍼티가 존재하지 않음음
+    //풀링 설정 프로퍼티가 존재하지 않음
 //   @Bean
 //    public DataSource dataSource() {
 //        DriverManagerDataSource dataSource = new DriverManagerDataSource();

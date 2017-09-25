@@ -5,7 +5,6 @@ import org.springframework.stereotype.Repository;
 import spittr.domain.Spitter;
 
 import javax.inject.Inject;
-import java.util.List;
 
 @Repository
 public class JdbcSpitterRepository implements SpitterRepository {
@@ -30,16 +29,6 @@ public class JdbcSpitterRepository implements SpitterRepository {
 
     @Override
     public Spitter findByUsername(String username) {
-        return null;
-    }
-
-    @Override
-    public Spitter findOne(long id) {
-        return null;
-    }
-
-    @Override
-    public List<Spitter> findAll() {
         return null;
     }
 }
