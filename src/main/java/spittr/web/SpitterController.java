@@ -1,9 +1,5 @@
 package spittr.web;
 
-import com.amazonaws.auth.AWSCredentials;
-import com.amazonaws.services.s3.metrics.S3ServiceMetric;
-import com.sun.org.apache.xpath.internal.operations.Mod;
-import com.sun.xml.internal.ws.wsdl.writer.document.Part;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,8 +7,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import spittr.Spitter;
-import spittr.Spittle;
+import spittr.domain.Spitter;
 import spittr.data.SpitterRepository;
 
 import javax.validation.Valid;

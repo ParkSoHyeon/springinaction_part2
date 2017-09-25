@@ -6,8 +6,8 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.servlet.view.InternalResourceView;
-import spittr.Spitter;
-import spittr.Spittle;
+import spittr.domain.Spitter;
+import spittr.domain.Spittle;
 import spittr.data.SpitterRepository;
 import spittr.data.SpittleRepository;
 
