@@ -28,6 +28,10 @@ public class Spitter {
     @Email(message = "{email.valid}")
     private String email;
 
+    private String fullName;
+
+    private boolean updateByEmail;
+
     public Spitter() {
 
     }
@@ -47,19 +51,44 @@ public class Spitter {
         this.lastName = lastName;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public Spitter(Long id, String username, String password, String fullName, String email, boolean updateByEmail) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.fullName = fullName;
+        this.email = email;
+        this.updateByEmail = updateByEmail;
     }
 
-    public String getLastName( ){
-        return lastName;
+    public long getId() {
+        return id;
     }
 
     public String getUsername() {
         return username;
     }
 
-    public String password() {
+    public String getPassword() {
         return password;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public boolean isUpdateByEmail() {
+        return updateByEmail;
     }
 }
