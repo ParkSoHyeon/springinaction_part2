@@ -11,7 +11,7 @@ public class Spitter {
     private Spitter() {}
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
     @Column(name="username")
@@ -29,8 +29,7 @@ public class Spitter {
     @Column(name="updateByEmail")
     private boolean updateByEmail;
 
-    public Spitter(Long id, String username, String password, String fullName,
-                   String email, boolean updateByEmail) {
+    public Spitter(Long id, String username, String password, String fullName, String email, boolean updateByEmail) {
         this.id = id;
         this.username = username;
         this.password = password;
