@@ -26,6 +26,7 @@ public class HibernateSpitterRepository implements SpitterRepository {
     public long count() {
         return findAll().size();
     }
+
     @Override
     public Spitter save(Spitter spitter) {
         Serializable id = currentSession().save(spitter);
